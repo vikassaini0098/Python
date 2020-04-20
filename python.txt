@@ -1,0 +1,106 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+data=pd.read_excel("covid 19 (1).xlsx")
+import numpy as np
+a=data.groupby(['Detected State','Gender']).size().reset_index(name="Count")
+fig, ax1 = plt.subplots(figsize = (12,12)) 
+plt.bar(a["Detected State"],a['Count'],color="#ff0066")
+plt.xlabel("States")
+plt.ylabel("Number of Patients")
+plt.title("Total Number of Patients affected each State")
+plt.tight_layout()
+plt.show()
+
+
+
+
+import matplotlib.pyplot as plt
+import pandas as pd
+df =  pd.read_excel("covid 19 (1).xlsx")
+plt.bar(df["Current Status"],df["Patient Number"])
+plt.title("Reports of Patient  ")
+plt.xlabel("Current Status")
+plt.ylabel("No. of Patients")
+plt.show()
+
+
+
+
+#.........date wise increment decrement of patients........... 
+import pandas as pd
+import matplotlib.pyplot as plt
+df= pd.read_excel("covid 19 (1).xlsx")
+dt=df["Date Announced"].value_counts()
+dt.plot.line(figsize=(15,15),linewidth="7")
+plt.xlabel("Date")
+plt.ylabel("Number of patients")
+plt.show()
+
+
+
+
+import numpy as np
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+from matplotlib.ticker import StrMethodFormatter
+
+
+
+df = pd.read_excel (r'covid_19.xlsx')
+
+
+nt=df['Nationality']
+
+
+
+a=df.Nationality.unique()
+
+print(a)
+
+a=df.groupby(['Nationality','Gender']).size().reset_index(name="Count")
+
+fig, ax1 = plt.subplots(figsize = (10,10))
+
+plt.bar(a["Nationality"],a['Count'],color="#104E8B")
+
+plt.xlabel("Nationality")
+
+plt.ylabel("No. of Patients")
+
+
+plt.tight_layout()
+
+plt.show()
+
+
+
+
+
+import numpy as np
+
+import pandas as pd
+
+import matplotlib.pyplot as plt
+
+from matplotlib.ticker import StrMethodFormatter
+
+
+
+cdata= pd.read_excel (r'covid_19.xlsx')
+cdata["Age Bracket"]=cdata["Age Bracket"].fillna("NIA")
+
+age=cdata["Age Bracket"].value_counts()
+age=age.drop(labels="NIA")
+
+age.plot.bar(figsize=(15,15),color='#dd99ff')
+
+print(age)
+plt.show()
+
+
+
+
+
