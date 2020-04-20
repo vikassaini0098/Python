@@ -48,18 +48,11 @@ nt=df['Nationality']
 a=df.Nationality.unique()
 print(a)
 a=df.groupby(['Nationality','Gender']).size().reset_index(name="Count")
-
 fig, ax1 = plt.subplots(figsize = (10,10))
-
 plt.bar(a["Nationality"],a['Count'],color="#104E8B")
-
 plt.xlabel("Nationality")
-
 plt.ylabel("No. of Patients")
-
-
 plt.tight_layout()
-
 plt.show()
 
 
