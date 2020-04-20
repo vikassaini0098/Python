@@ -40,26 +40,13 @@ plt.show()
 
 
 import numpy as np
-
 import pandas as pd
-
 import matplotlib.pyplot as plt
-
 from matplotlib.ticker import StrMethodFormatter
-
-
-
 df = pd.read_excel (r'covid_19.xlsx')
-
-
 nt=df['Nationality']
-
-
-
 a=df.Nationality.unique()
-
 print(a)
-
 a=df.groupby(['Nationality','Gender']).size().reset_index(name="Count")
 
 fig, ax1 = plt.subplots(figsize = (10,10))
@@ -80,23 +67,14 @@ plt.show()
 
 
 import numpy as np
-
 import pandas as pd
-
 import matplotlib.pyplot as plt
-
 from matplotlib.ticker import StrMethodFormatter
-
-
-
 cdata= pd.read_excel (r'covid_19.xlsx')
 cdata["Age Bracket"]=cdata["Age Bracket"].fillna("NIA")
-
 age=cdata["Age Bracket"].value_counts()
 age=age.drop(labels="NIA")
-
 age.plot.bar(figsize=(15,15),color='#dd99ff')
-
 print(age)
 plt.show()
 
